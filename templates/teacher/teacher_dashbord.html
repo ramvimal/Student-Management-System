@@ -1,0 +1,95 @@
+{% extends "Homepage/home.html" %} 
+{% load static %} 
+{% block title %}<title>Teacher's Dashbord</title>{% endblock title %} 
+
+{% block style %}
+  <link rel="stylesheet" href="{% static 'teacher/teacher_dashbord.css' %}" />
+{% endblock style %} 
+
+{% block content %}
+
+<div class="navbar_dashboard">
+  <div>
+    <strong>Profile (Dashboard)</strong>
+  </div>
+</div>
+{% if messages %} 
+  {% for message in messages%}
+    <div id="password_success_message">
+      <p style="font-weight: bold; color: blue; font-size: 22px">{{message}}</p>
+      <i class="bx bx-x" style="color: #ffffff;font-size: 30px;position: fixed;right: 10px;top: 172px;cursor: pointer;" onclick="disable();"></i>
+    </div>
+  {% endfor %} 
+{% endif %}
+
+<div class="container">
+  <h1>Welcome, <span class="highlight">{{teacher.username}} sir</span></h1>
+  <div class="cards">
+    <div class="card">
+      <h3>Total Students</h3>
+      <p>120</p>
+    </div>
+    <div class="card">
+      <h3>Assignments Given</h3>
+      <p>24</p>
+    </div>
+    <div class="card">
+      <h3>Pending Reviews</h3>
+      <p>8</p>
+    </div>
+    <div class="card">
+      <h3>Attendance Reports</h3>
+      <p>5</p>
+    </div>
+  </div>
+
+  <div class="bottom-section">
+    <div class="table">
+      <h2>Recent Student Submissions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Student Name</th>
+            <th>Assignment</th>
+            <th>Status</th>
+            <th>Submitted On</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Riya Patel</td>
+            <td>Python Project</td>
+            <td><span class="status completed">Completed</span></td>
+            <td>09 Oct 2025</td>
+          </tr>
+          <tr>
+            <td>Aman Sharma</td>
+            <td>Django App</td>
+            <td><span class="status pending">Pending</span></td>
+            <td>08 Oct 2025</td>
+          </tr>
+          <tr>
+            <td>Kiran Mehta</td>
+            <td>HTML Design</td>
+            <td><span class="status completed">Completed</span></td>
+            <td>07 Oct 2025</td>
+          </tr>
+          <tr>
+            <td>Nirav Joshi</td>
+            <td>JavaScript Task</td>
+            <td><span class="status pending">Pending</span></td>
+            <td>07 Oct 2025</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+  function disable() {
+    let msg = document.getElementById("password_success_message");
+    if (msg) msg.style.display = "none";
+  }
+</script>
+{% endblock content %}

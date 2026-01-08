@@ -1,0 +1,67 @@
+{% extends "Homepage/home.html" %}
+{% load static %}
+{% block title %}<title>Student Dashbord</title>{% endblock title %} 
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'student/student_dashbord_style.css' %}">
+{% endblock style %}
+
+
+{% block content %}
+<div class="navbar_dashboard">
+    <div><strong>📋 Student Dashboard</strong></div>
+</div>
+
+{% if messages %}
+    {% for message in messages %}
+    <div class="password_success_change" id="password_success_message">
+        <p>{{ message }}</p>
+        <i class='bx bx-x' onclick="disable();"></i>
+    </div>
+    {% endfor %}
+{% endif %}
+
+<div class="container">
+    <div class="profile">
+        <h3>👋 Welcome, {{ student.username }}</h3>
+        <p><strong>Email:</strong> {{ student.email }}</p>
+        <p><strong>Roll No:</strong> {{ student.rollno }}</p>
+        <p><strong>Stream:</strong> {{ student.stream }}</p>
+    </div>
+
+    <div class="card">
+        <h4>📘 Subjects Enrolled </h4>
+        <p>Subject details coming soon...</p>
+    </div>
+
+    <div class="card">
+        <h4>🔔 Notifications</h4>
+        <p>No new messages.</p>
+    </div>
+
+    <div class="card">
+        <h4>📅 Timetable</h4>
+        <div class="time_table">
+            <!-- (Keep your timetable table same as before) -->
+            {{ block.super }}
+        </div>
+    </div>
+</div>
+
+<script>
+    function disable(){
+        let msg = document.getElementById("password_success_message");
+        if (msg) msg.style.display="none";
+    }
+
+    setTimeout(() => {
+        const msg = document.getElementById("password_success_message");
+        if (msg) {
+            msg.style.transition = "opacity 0.5s ease";
+            msg.style.opacity = "0";
+            setTimeout(() => msg.remove(), 1500);
+        }
+    }, 3000);
+
+</script>
+{% endblock content %}

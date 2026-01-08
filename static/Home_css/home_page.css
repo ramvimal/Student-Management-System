@@ -1,0 +1,61 @@
+/* ====== General ====== */
+.section-title {
+    font-weight: 700;
+    color: #333;
+}
+
+.section-text {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #555;
+}
+
+/* ====== Features ====== */
+.feature-card {
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ====== Roles ====== */
+.role-card {
+    background: #fff;
+    transition: 0.3s;
+}
+
+.role-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.cta-section {
+    background: linear-gradient(to right, #4a00e0, #0072ff);
+    color: #fff;
+    border-radius: 12px;
+    margin: 60px auto;
+    max-width: 900px;
+}
+
+.btn-gradient {
+    display: inline-block;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-gradient:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(37, 117, 252, 0.4);
+}
+
+.img {
+    width:100%;
+}

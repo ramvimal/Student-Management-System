@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    /* Using Inter font as per instructions */
+    background-color: #f0f2f5;
+    /* Light background for contrast */
+}
+
+ul{
+    margin: 0;
+}
+/* Navbar container styling */
+.navbar {
+    background-color: #1e3a8a;
+    display: flex;
+    /* Use flexbox for alignment */
+    justify-content: space-between;
+    /* Space out items */
+    align-items: center;
+    /* Vertically align items */
+    padding: 10px 20px;
+    /* Padding inside the navbar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-height: 45px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    opacity: 0.8;
+}
+
+
+/* Left section of the navbar (e.g., brand/logo) */
+.navbar-brand {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 0 15px;
+}
+
+/* Navigation links container */
+.navbar-links {
+    display: flex;
+    /* Use flexbox for links */
+    list-style: none;
+    /* Remove bullet points from list */
+}
+
+/* Individual navigation link item */
+.navbar-links li {
+    margin-left: 25px;
+    /* Space between links */
+}
+
+/* Styling for the actual links */
+.navbar-links li a {
+    display: block;
+    /* Make the whole area clickable */
+    color: white;
+    /* White text color */
+    text-align: center;
+    padding: 14px 16px;
+    /* Padding around text */
+    text-decoration: none;
+    /* Remove underline */
+    transition: background-color 0.3s ease, color 0.3s ease, border-radius 0.3s ease;
+    border-radius: 6px;
+    /* Slightly rounded corners for links */
+}
+
+/* Change background and text color on hover */
+.navbar-links li a:hover {
+    background-color: #575757;
+    /* Lighter background on hover */
+    color: #ffcc00;
+    /* Accent color on hover */
+}
+
+/* Styling for the active link (optional) */
+.navbar-links li a.active {
+    background-color: #04AA6D;
+    /* Green background for active link */
+    color: white;
+}
+
+/* Right section of the navbar (login/signup) */
+.navbar-auth {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.navbar-auth a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-auth a.logout {
+    background-color: #007bff;
+    /* Blue for login */
+}
+
+.navbar-auth a.logout:hover {
+    background-color: #0056b3;
+}
+
+.private_navbar {
+    font-weight: bold;
+}
+
+.private_navbar:hover {
+    background-color: #575757;
+    /* Lighter background on hover */
+    color: #ffcc00;
+}
+
+#logout_icon {
+    cursor: pointer;
+}
+
+#container_button {
+    background-color: black;
+    border-radius: 19px;
+    box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.51);
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: min-content;
+    height: auto;
+    padding-top: 10px;
+}
+
+#element_icon {
+    width: 197px;
+    display: inline-block;
+    background-color: #0000ffff;
+    text-align: center;
+    font-weight: bold;
+    margin: 10px;
+}
+
+#element_icon:hover {
+    background-color: #7064daff;
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        /* Stack items vertically */
+        padding: 10px;
+    }
+
+    .navbar-brand {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        /* Stack links vertically */
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .navbar-links li {
+        margin: 5px 0;
+        /* Adjust margin for vertical stacking */
+        width: 100%;
+        /* Full width for links */
+    }
+
+    .navbar-links li a {
+        padding: 10px;
+        /* Adjust padding */
+    }
+
+    .navbar-auth {
+        flex-direction: column;
+        /* Stack auth buttons vertically */
+        width: 100%;
+    }
+}

@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'Home_css/navbar.css' %}">
+</head>
+<body>
+    {% if request.user.is_authenticated %}
+        {% if request.user.is_superuser %}
+        <!-- superuser / admin navbar -->
+        <nav class="navbar">
+            <a href="/" class="navbar-brand">Student Management System</a>
+            <ul class="navbar-links">
+                <li><a href="/admin/">Admin Dashboard</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+        {% elif request.user.role == "student" %}
+        <nav class="navbar">
+            <a href="/" class="navbar-brand">Student Management System</a>
+            <ul class="navbar-links">
+                <li><a href="{% url 'student_dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'student_attendance' %}">Attendance</a></li>
+                <li><a href="{% url 'form_result' %}">My Result</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+            <div class="navbar-auth">
+                <div id="container_button" style="visibility: hidden;">
+                    <i class='bx bx-user-circle' style='color:white;font-size:40px;position:relative;left:40%;margin-bottom:20px;'></i>
+                    <a href="{% url 'logout' %}" id="element_icon">Logout</a>
+                    <a href="{% url 'change_pass' %}" id="element_icon">Change Password</a>
+                </div>
+                <i class="bx bxs-user" style="color:white;font-size:25px;" id="logout_icon" onclick="logout()"></i>
+            </div>
+        </nav>
+        {% elif request.user.role == "teacher" %}
+        <nav class="navbar">
+            <a href="/" class="navbar-brand">Student Management System</a>
+            <ul class="navbar-links">
+                <li><a href="{% url 'teacher_dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'take_attendance' %}">Take Attendance</a></li>
+                <li><a href="{% url 'make_result' %}">Enter Result</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+            <div class="navbar-auth">
+                <div id="container_button" style="visibility: hidden;">
+                    <i class='bx bx-user-circle' style='color:white;font-size:40px;position:relative;left:40%;margin-bottom:20px;'></i>
+                    <a href="{% url 'logout' %}" id="element_icon">Logout</a>
+                    <a href="{% url 'change_pass' %}" id="element_icon">Change Password</a>
+                </div>
+                <i class="bx bxs-user" style="color:white;font-size:25px;" id="logout_icon" onclick="logout()"></i>
+            </div>
+        </nav>
+        {% endif %}
+    {% else %}
+        <nav class="navbar">
+            <a href="/" class="navbar-brand">Student Management System</a>
+            <div class="navbar-auth">
+                <a href="{% url 'home'%}" class="contact private_navbar">Home</a>
+                <a href="{% url 'login' %}" class="login private_navbar">Login</a>
+                <a href="{% url 'student_register' %}" class="signup private_navbar">Register</a>
+                <a href="{% url 'about' %}" class="about private_navbar">About</a>
+                <a href="{% url 'contact' %}" class="contact private_navbar">Contact</a>
+            </div>
+        </nav>
+    {% endif %}
+    <script>
+        function logout(){
+            let icon_btn=document.getElementById("container_button");
+            if(icon_btn.style.visibility == "hidden"){
+                icon_btn.style.visibility="visible";
+            }
+            else{ 
+                icon_btn.style.visibility="hidden"; 
+            } 
+        } 
+    </script>
+</body>
+</html>

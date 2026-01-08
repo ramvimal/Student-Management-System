@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .footer {
+            background-color: #2d3748; /* Equivalent to bg-gray-800 */
+            color: #fff; /* Equivalent to text-white */
+            padding: 1.5rem 0rem; /*Equivalent to py-6 px-4*/
+            border-top-left-radius: 0.5rem; /* Equivalent to rounded-t-lg */
+            border-top-right-radius: 0.5rem; /* Equivalent to rounded-t-lg */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);  
+        }
+
+        .footer-container {
+            max-width: 1280px; /* Equivalent to container max-width */
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .footer-copyright {
+            font-size: 0.875rem; /* Equivalent to text-sm */
+            margin-bottom: 1rem; /* Equivalent to mb-4 */
+        }
+
+        /* Media query for medium screens and above for copyright margin */
+        @media (min-width: 768px) {
+            .footer-copyright {
+                margin-bottom: 0.5rem; /* Equivalent to md:mb-2 */
+            }
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            font-size: 0.875rem; /* Equivalent to text-sm */
+        }
+
+        .footer-nav a {
+            color: #d1d5db; /* Equivalent to text-gray-300 */
+            margin: 0.25rem 0.5rem; /* Equivalent to mx-2 my-1 */
+            padding: 0.25rem; /* Equivalent to p-1 */
+            border-radius: 0.375rem; /* Equivalent to rounded-md */
+            transition: color 0.2s ease-in-out; /* Equivalent to transition-colors duration-200 */
+            text-decoration: none; /* Remove underline from links */
+        }
+
+        .footer-nav a:hover {
+            color: #fff; /* Equivalent to hover:text-white */
+        }
+
+        .footer-separator {
+            color: #a0aec0; /* Equivalent to text-gray-500 */
+            display: none; /* Equivalent to hidden */
+        }
+
+        /* Media query for medium screens and above for separator visibility */
+        @media (min-width: 768px) {
+            .footer-separator {
+                display: inline; /* Equivalent to md:inline */
+            }
+
+            .footer-nav a {
+                margin-top: 0; /* Equivalent to md:my-0 */
+                margin-bottom: 0; /* Equivalent to md:my-0 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Copyright information -->
+            <p class="footer-copyright">
+                2019 &copy; Copyright | All Rights Reserved.
+            </p>
+            <!-- Navigation links -->
+            <nav class="footer-nav">
+                <span class="footer-separator">|</span>
+                <a href="#">Privacy Policy</a>
+                <span class="footer-separator">|</span>
+                <a href="#">Terms and Conditions</a>
+                <span class="footer-separator">|</span>
+                <a href="{% url 'contact' %}">Contacts US</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

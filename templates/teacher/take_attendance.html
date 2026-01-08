@@ -1,0 +1,66 @@
+{% extends "Homepage/home.html" %}
+{% load static %}
+
+{% block title %}<title>Take Attendence</title>{% endblock title %} 
+    
+{% block style %}
+    <link rel="stylesheet" href="{% static 'teacher/take_attendance.css' %}">
+{% endblock style %}
+
+{% block content %}
+<div class="navbar_dashboard">
+    <div><strong>Attendance </strong></div>
+</div>
+{% if attendance_taken %}
+    <div class="attendence_taken" id="disable_for_attendence">
+        <p>{{attendance_taken}}</p>
+        <i class='bx  bx-x' id="icon" onclick="disable();"></i>
+    </div>
+{% endif %}
+{% if attendance_already %}
+    <div class="attendence_already" id="disable_for_attendence">
+        <p>{{attendance_already}}</p>
+        <i class='bx  bx-x' id="icon" onclick="disable();"></i>
+    </div>
+{% endif %}
+<div class="container">
+    <h2>📋 Take Attendance</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label>Select Date:</label>
+        <input type="date" name="date" value="{{ today|default:'' }}" required>
+        <table border="1" cellpadding="5">
+            <tr>
+                <th>Roll No</th>
+                <th>Student</th>
+                <th>Present</th>
+                <th>Absent</th>
+            </tr>
+            {% for student in students %}
+            <tr>
+                <td>{{student.rollno}}</td>
+                <td>{{student.username }}</td>
+                <td><input type="radio" name="status_{{ student.id }}" value="Present" required checked></td>
+                <td><input type="radio" name="status_{{ student.id }}" value="Absent"></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <button type="submit">Save Attendance</button>
+    </form>
+</div>
+<script>
+    function disable(){
+        let message = document.getElementById("disable_for_attendence");
+        message.style.display="none";
+    }
+    setTimeout(() => {
+            const msg = document.getElementById("disable_for_attendence");
+            if (msg) {
+                msg.style.transition = "opacity 0.5s ease";
+                msg.style.opacity = "0";
+                setTimeout(() => msg.remove(), 500);
+            }
+        }, 3000);
+</script>
+{% endblock content %}
+

@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}{% endblock title %}
+    {% block style %}{% endblock style %}
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');</style>
+</head>
+<body>
+    {% include "Homepage/navbar.html" %}
+    {% block content %}
+    {% endblock content %}
+    {% include "Homepage/footer.html" %}
+</body>
+</html>

@@ -1,0 +1,62 @@
+{% extends "Homepage/home.html" %}
+{% load static %}
+
+{% block title %} <title>About-Us Page</title>{% endblock title %} 
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'Home_css/about.css' %}">
+{% endblock style %}
+
+
+{% block content %}
+<div class="navbar_dashboard">
+    <div><strong>About </strong></div>
+</div>
+<div class="container">
+    <div class="container_about">
+        <header>
+            <h1>About Us</h1>
+        </header>
+
+        <main>
+            <section class="card">
+                <p>Our Student Management System helps schools, teachers, and students manage attendance, results, and academic activities in one comprehensive platform. We believe in creating a seamless and collaborative digital environment for the entire school community.</p>
+            </section>
+
+            <section class="card">
+                <h2>Our Mission</h2>
+                <p>To simplify and digitalize school operations by providing an easy-to-use, efficient, and secure platform for teachers, students, and parents. Our goal is to empower educators with the tools they need to focus on teaching, and students with the resources to succeed.</p>
+            </section>
+
+            <section class="card">
+                <h2>Key Features</h2>
+                <ul class="key_features">
+                    <li class="key_features_li"><strong>👉Student Profiles</strong> <strong class="aero_tag">→</strong> <strong class="key_features_content"> Manage academic and personal details.</strong></li>
+                    <li class="key_features_li"><strong>👉Attendance Tracking</strong> <strong class="aero_tag">→</strong><strong class="key_features_content"> Teachers can record, students can view.</strong></li>
+                    <li class="key_features_li"><strong>👉Result Management</strong> <strong class="aero_tag">→ </strong><strong class="key_features_content">View and update student performance.</strong></li>
+                    <li class="key_features_li"><strong>👉Teacher Dashboard</strong> <strong class="aero_tag">→</strong><strong class="key_features_content"> Tools for class and attendance management.</strong></li>
+                    <li class="key_features_li"><strong>👉Secure Login</strong> <strong class="aero_tag">→ </strong><strong class="key_features_content">Separate access for students and teachers.</strong></li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2 class="our_team_card_h2">Our Team</h2>
+                <div class="team-member">
+                    <img src="https://placehold.co/60x60/8B5CF6/FFFFFF?text=V" alt="Vimal">
+                    <div class="team-member-info">
+                        <h3>Vimal</h3>
+                        <p>Lead Developer</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="https://placehold.co/60x60/34D399/FFFFFF?text=K" alt="XYZ">
+                    <div class="team-member-info">
+                        <h3>Kamlesh</h3>
+                        <p>UI/UX Designer</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+{% endblock content %}

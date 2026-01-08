@@ -1,0 +1,50 @@
+{% extends "Homepage/home.html" %}
+{% load static %}
+
+{% block title %} <title>Semester/Result Form</title> {% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'results/form_result_style.css' %}">
+{% endblock style %}
+
+{% block content %}
+    <div class="navbar_dashboard">
+        <div><strong>Result </strong></div>
+    </div>
+    {% if sem_not_found %}
+        <div class="result_not_found" id="result_not_found">
+            <p>{{ sem_not_found }}</p>
+            <i class='bx bx-x' onclick="disable();"></i>
+        </div>
+    {% endif %}
+
+    <div class="container">
+        <div class="form_container">
+            <h2>👇Check Your Result👇</h2>
+            <form method="post">
+                {% csrf_token %}
+                <label for="{{ form.sem.id_for_label }}" class="sem_label">
+                    {{ form.sem.label }}
+                </label><br>
+                {{ form.sem }}
+                <div class="btn">
+                    <button type="submit">View Result</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function disable(){
+            let msg = document.getElementById("result_not_found");
+            msg.style.display="none";
+        }
+        setTimeout(() => {
+            const msg = document.getElementById("result_not_found");
+            if (msg) {
+                msg.style.transition = "opacity 0.5s ease";
+                msg.style.opacity = "0";
+                setTimeout(() => msg.remove(), 1500);
+            }
+        }, 3000);
+    </script>
+{% endblock content %}

@@ -1,0 +1,101 @@
+.navbar_dashboard {
+    background: linear-gradient(90deg, #4f46e5, #3b82f6);
+    color: white;
+    padding: 30px 30px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.container_view_result{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.result_conatiner{
+    width:60%;
+    background-color: #c9c6c6;
+    border-radius: 20px;
+    margin: 10px 0px 10px 0px;
+}
+
+.Result_semester_header{
+    color:rgb(0, 0, 0);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin: 0;
+    text-align: center;
+    font-size: 1.4em;
+    background-color: #5d944d65;
+    border-bottom: 1px solid #5d944dc7;
+    padding: 10px;
+}
+
+.header{
+    margin: 5px 0px 5px 0px;
+    background-color: #5d944d9a;
+    padding:5px;
+    text-align: center;
+
+}
+.result_detail{
+    padding:20px;
+    font-size: 20px;
+}
+
+.sd{
+    padding:20px;
+    font-size: 20px;
+}
+
+table{
+    border-collapse:collapse;
+    width: 100%;
+}
+
+td, th {
+  border: 1px solid #504f4f1f;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #ffffff3f;
+}
+
+.pass_or_fail_message{
+    border: 2px solid rgb(0, 102, 255);
+    text-align: center;
+    padding: 5px;
+    margin-top: 10px;
+    color:rgb(0, 102, 255);
+    font-weight: bold;
+}
+
+.result_percentage_detail{
+    border:0.5px solid #504f4f67;
+    margin:10px 0px 10px 0px;
+}
+
+
+.a_for_result_back{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    text-decoration:none;
+}
+
+.btn_for_result_back{
+    margin:10px 0px 10px 0px; 
+    width:120px;
+    padding:8px; 
+    background:green; 
+    color:white; 
+    border:none; 
+    cursor:pointer;
+    text-align:center;
+    border-radius: 10px;
+}

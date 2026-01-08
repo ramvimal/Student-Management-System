@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Update the CSS for the new structure */
+        .form-group {
+            margin-bottom: 15px; /* Adds vertical space between form fields */
+        }
+
+        .field-error ul { /* Targeting the <ul> inside the field-error div */
+            color: #dc3545;
+            font-size: 0.9em;
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 5px;
+        }
+
+        /* You can also style the labels and inputs using the CSS from the Basic section */
+    </style>
+</head>
+<body>
+    <h1>Student Sign Up</h1>
+    <form method="POST">
+        {% csrf_token %}
+        
+        <div class="non-field-errors">
+            {{ form.non_field_errors }}
+        </div>
+
+        <div class="form-group">
+            {{ form.username.label_tag }}
+            {{ form.username }}
+            <div class="field-error">{{ form.username.errors }}</div>
+        </div>
+        
+        <div class="form-group">
+            {{ form.email.label_tag }}
+            {{ form.email }}
+            <div class="field-error">{{ form.email.errors }}</div>
+        </div>
+        
+        <div class="form-group">
+            {{ form.password1.label_tag }}
+            {{ form.password1 }}
+            <div class="field-error">{{ form.password1.errors }}</div>
+        </div>
+        
+        <div class="form-group">
+            {{ form.password2.label_tag }}
+            {{ form.password2 }}
+            <div class="field-error">{{ form.password2.errors }}</div>
+        </div>
+        
+        <div class="form-group">
+            {{ form.username.errors }}
+            {{ form.email.errors }}
+            {{ form.password1.errors }}
+            {{ form.password2.errors }}
+        </div>
+        <button type="submit">Sign Up</button>
+    </form>
+</body>
+</html>

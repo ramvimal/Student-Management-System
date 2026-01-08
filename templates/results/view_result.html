@@ -1,0 +1,217 @@
+{% extends "Homepage/home.html" %}
+{% load static %}
+
+{% block title %} <title>Result for Semester : {{ result.sem }}</title> {% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'results/view_result_style.css' %}">
+{% endblock style %}
+
+{% block content %}
+    <div class="navbar_dashboard">
+        <div><strong>Result </strong></div>
+    </div>
+    <div class="container_view_result">
+        {% if result %}
+            <div class="result_conatiner">
+                <h3 class="Result_semester_header">Result | Semester-{{ result.sem }}</h3>
+                <h3 class="student_detail_header header" style="margin:0 0 5px 0;">Student's Detial</h3>
+                <div class="sd">
+                    <table>
+                        <tr style="font-size:20px;">
+                            <td>Name : {{ result.student }}</td>
+                            <td>Roll No : {{ result.student.rollno }}</td>
+                        </tr>
+                        <tr style="font-size:20px;">
+                            <td>A.Y. : {{ result.ac_year }}</td>
+                            <td>Father's Name : {{ result.student.father_name }}</td>
+                        </tr>
+                        <tr style="font-size:20px;">
+                            <td>D.O.B : {{ result.student.dob }}</td>
+                            <td>Stream : {{ result.student.stream }}</td>
+                        </tr>
+                    </table>
+                </div>
+                <h3 class="result_detail_header header">Result's Detial</h3>
+                <div class="result_detail">
+                    <table>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Minimum</th>
+                            <th>Obtained Marks</th>
+                            <th>Maximum</th>
+                            <th>Grade</th>
+                        </tr>
+                        <tr>
+                            <td>SEO</td>
+                            <td>33</td>
+                            <td>{{result.seo}}</td>
+                            <td>100</td>
+                            <td>
+                                {% if result.seo >= 90 %}
+                                A+
+                                {% elif result.seo >= 80 %}
+                                A
+                                {% elif result.seo >= 70 %}
+                                B
+                                {% elif result.seo >= 60 %}
+                                C
+                                {% elif result.seo >= 50 %}
+                                D
+                                {% elif result.seo >= 33 %}
+                                Pass
+                                {% else %}
+                                Fail
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>C#</td>
+                            <td>33</td>
+                            <td>{{result.c_sharp}}</td>
+                            <td>100</td>
+                            <td>
+                                {% if result.c_sharp >= 90 %}
+                                A+
+                                {% elif result.c_sharp >= 80 %}
+                                A
+                                {% elif result.c_sharp >= 70 %}
+                                B
+                                {% elif result.c_sharp >= 60 %}
+                                C
+                                {% elif result.c_sharp >= 50 %}
+                                D
+                                {% elif result.c_sharp >= 33 %}
+                                Pass
+                                {% else %}
+                                Fail
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PHP</td>
+                            <td>33</td>
+                            <td>{{result.php}}</td>
+                            <td>100</td>
+                            <td>
+                                {% if result.php >= 90 %}
+                                A+
+                                {% elif result.php >= 80 %}
+                                A
+                                {% elif result.php >= 70 %}
+                                B
+                                {% elif result.php >= 60 %}
+                                C
+                                {% elif result.php >= 50 %}
+                                D
+                                {% elif result.php >= 33 %}
+                                Pass
+                                {% else %}
+                                Fail
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Python</td>
+                            <td>33</td>
+                            <td>{{result.python}}</td>
+                            <td>100</td>
+                            <td>
+                                {% if result.python >= 90 %}
+                                    A+
+                                {% elif result.python >= 80 %}
+                                A
+                                {% elif result.python >= 70 %}
+                                B
+                                {% elif result.python >= 60 %}
+                                C
+                                {% elif result.python >= 50 %}
+                                D
+                                {% elif result.python >= 33 %}
+                                Pass
+                                {% else %}
+                                Fail
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Java</td>
+                            <td>33</td>
+                            <td>{{result.java}}</td>
+                            <td>100</td>
+                            <td>
+                                {% if result.java >= 90 %}
+                                A+
+                                {% elif result.java >= 80 %}
+                                A
+                                {% elif result.java >= 70 %}
+                                B
+                                {% elif resultesult.java >= 60 %}
+                                C
+                                {% elif result.java >= 50 %}
+                                D
+                                {% elif result.java >= 33 %}
+                                Pass
+                                {% else %}
+                                Fail
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </table>
+                    {{ find_sem.get_semester }}
+                    {% if result.seo >= 33 and result.c_sharp >= 33 and result.php >= 33 and result.python >= 33 and result.java >= 33 %}
+                        <div class="pass_or_fail_message">🎉Congraluation! You has passed an exam of Semester {{ result.sem }} 🎉</div>
+                    {% else %}
+                        <div class="pass_or_fail_message" style="border:2px solid red;color:red;">🥲Sorry! You has failed this exam of Semester {{ result.sem }} 🥲</div>
+                    {% endif %}
+                    <div class="result_percentage_detail">
+                        <table>
+                            {% with no=result.get_summary %}
+                                <tr style="font-size:20px;text-align:center;">
+                                    <th>Percentage</th>
+                                    <th>Result</th>
+                                    <th>Total Marks Obtained</th>
+                                </tr>
+                                <tr style="font-size:20px;text-align:center;font-weight:bold;">
+                                    {% if no.percentage >= 33  %}
+                                    <td style="color:rgb(0, 102, 255);">
+                                        {{no.percentage}}%
+                                    </td>
+                                    {% else %}
+                                    <td style="color:red">
+                                        {{no.percentage}}%
+                                    </td>
+                                    {% endif %}
+                                    {% if result.seo >= 33 and result.c_sharp >= 33 and result.php >= 33 and result.python >= 33 and result.java >= 33 %}
+                                        <td style="color:rgb(0, 102, 255);">Pass</td>
+                                    {% else %}
+                                        <td style="color:red;">Fail in {{no.fail_count}} subjects.</td>
+                                    {% endif %}
+                                    <td>
+                                        {{no.total_marks}}/500
+                                    </td>
+                                {% endwith %}
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <a href="{% url 'download_result' result.id %}" class="a_for_result_back">
+                    <button class="btn_for_result_back">
+                        Download Result
+                    </button>
+                </a>
+                <a href="{% url 'form_result' %}" class="a_for_result_back" >
+                    <button class="btn_for_result_back">
+                        Go Back
+                    </button>
+                </a>             
+            </div>
+        {% endif %}
+    </div>
+    <script>
+        function disable(){
+            let msg = document.getElementById("result_not_found");
+            msg.style.display="none";
+        }
+    </script>
+{% endblock content %}
